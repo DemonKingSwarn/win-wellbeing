@@ -29,3 +29,15 @@ Start-Process win-wellbeing -ArgumentList "-d" -WindowStyle Hidden
 win-wellbeing --show
 ```
 
+
+## Autostart with Windows
+
+- Press `Windows+R`
+- type `shell:startup` and press enter
+- Make a new file called `win-wellbeing-startup.ps1` and put the following in it:
+
+```sh
+powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Start-Process win-wellbeing -ArgumentList '-d' -WindowStyle Hidden"
+```
+
+save and exit
