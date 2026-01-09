@@ -8,7 +8,7 @@ namespace hyprwatch.Window
   public partial class GetWindows
   {
     [DllImport("user32.dll")]
-    static extern IntPtr GetForegroundWindows();
+    static extern IntPtr GetForegroundWindow();
 
     [DllImport("user32.dll", CharSet = CharSet.Unicode)]
     static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
@@ -19,7 +19,7 @@ namespace hyprwatch.Window
     public static string ActiveWindow()
     {
       string? activeWindow;
-      IntPtr hwnd = GetForegroundWindows();
+      IntPtr hwnd = GetForegroundWindow();
 
       var title = new StringBuilder(256);
       GetWindowText(hwnd, title, title.Capacity);
