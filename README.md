@@ -33,11 +33,13 @@ win-wellbeing --show
 ## Autostart with Windows
 
 - Press `Windows+R`
-- type `shell:startup` and press enter
-- Make a new file called `win-wellbeing-startup.ps1` and put the following in it:
+- Type `shell:startup` and press Enter
+- Create a new file called `win-wellbeing-startup.bat` with the following content:
 
-```sh
+```bat
+@echo off
 powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Start-Process win-wellbeing -ArgumentList '-d' -WindowStyle Hidden"
 ```
 
-save and exit
+- Save and exit
+
