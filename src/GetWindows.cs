@@ -3,6 +3,7 @@ namespace hyprwatch.Window
   using System;
   using System.Text;
   using System.Runtime.InteropServices;
+  using System.Text.RegularExpressions;
   using System.Diagnostics;
 
   public partial class GetWindows
@@ -29,12 +30,18 @@ namespace hyprwatch.Window
 
       activeWindow = title.ToString();
 
-      if(activeWindow == null)
+      var match = Regex.Match(title.ToString(), @"(?<=-).*");
+      if (match.Success)
+      {
+        activeWindow = match.Value.Trim();
+      }
+
+      if(string.IsNullOrEmpty(activeWindow))
       {
         activeWindow = "Home-Screen";
       }
 
-      return activeWindow ?? string.Empty;
+      return activeWindow;
     }
   }
 }
